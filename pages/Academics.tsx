@@ -1,32 +1,45 @@
 import React from 'react';
 import { Section } from '../components/Section';
-import { Book, PenTool, Globe, Cpu } from 'lucide-react';
+import { Book, PenTool, Globe, Cpu, Heart, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '../components/Button';
 
 export const Academics: React.FC = () => {
   const levels = [
     {
-      title: 'Creche & Nursery',
-      desc: 'Focus on sensory development, motor skills, social interaction, and foundational literacy and numeracy through play-based learning.',
+      title: 'Creche',
+      desc: 'Focus on sensory development, motor skills, and loving care in a safe home-away-from-home environment.',
       icon: <HeartIcon className="text-pink-500" />,
-      color: 'border-pink-500'
+      color: 'border-pink-500',
+      link: '/academics/creche'
+    },
+    {
+      title: 'Nursery',
+      desc: 'Early literacy, numeracy foundation, and social skills built through play-based learning.',
+      icon: <HeartIcon className="text-orange-500" />,
+      color: 'border-orange-500',
+      link: '/academics/nursery'
     },
     {
       title: 'Kindergarten (KG)',
-      desc: 'Developing reading readiness, communication skills, creativity, and basic logical thinking to prepare for primary education.',
+      desc: 'Developing reading readiness, creativity, and basic logical thinking to prepare for primary education.',
       icon: <PenTool className="text-green-500" />,
-      color: 'border-green-500'
+      color: 'border-green-500',
+      link: '/academics/kindergarten'
     },
     {
       title: 'Primary School',
-      desc: 'A robust curriculum covering Mathematics, English, Science, Citizenship, and ICT. We emphasize critical thinking and disciplined study habits.',
+      desc: 'A robust curriculum covering Mathematics, English, Science, and ICT. Emphasizing critical thinking and discipline.',
       icon: <Book className="text-blue-500" />,
-      color: 'border-blue-500'
+      color: 'border-blue-500',
+      link: '/academics/primary'
     },
     {
       title: 'Junior High School (JHS)',
-      desc: 'Rigorous preparation for the BECE. Advanced curriculum in STEM, languages, and vocational skills to ensure high school readiness.',
+      desc: 'Rigorous preparation for the BECE. Advanced curriculum in STEM and vocational skills.',
       icon: <Globe className="text-school-gold" />,
-      color: 'border-school-gold'
+      color: 'border-school-gold',
+      link: '/academics/jhs'
     }
   ];
 
@@ -38,14 +51,19 @@ export const Academics: React.FC = () => {
       </div>
 
       <Section background="white">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {levels.map((level, idx) => (
-            <div key={idx} className={`bg-white p-8 rounded-2xl shadow-lg border-t-4 ${level.color}`}>
+            <div key={idx} className={`bg-white p-8 rounded-2xl shadow-lg border-t-4 ${level.color} flex flex-col`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="bg-gray-50 p-3 rounded-full">{level.icon}</div>
                 <h3 className="text-2xl font-bold text-gray-800">{level.title}</h3>
               </div>
-              <p className="text-gray-600 leading-relaxed">{level.desc}</p>
+              <p className="text-gray-600 leading-relaxed mb-6 flex-grow">{level.desc}</p>
+              <Link to={level.link}>
+                <button className="flex items-center gap-2 text-school-dark font-bold hover:text-school-gold transition-colors">
+                  Learn More <ArrowRight size={18} />
+                </button>
+              </Link>
             </div>
           ))}
         </div>
