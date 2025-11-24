@@ -39,4 +39,26 @@ export const Nursery: React.FC = () => {
       </Section>
 
       <Section background="grey">
-        <div className="grid grid-
+        <div className="text-center max-w-2xl mx-auto mb-12">
+           <h2 className="text-3xl font-bold text-school-dark mb-4">Focus Areas</h2>
+           <div className="w-20 h-1 bg-school-gold mx-auto rounded-full"></div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { icon: <Palette size={32} />, title: 'Creative Arts', desc: 'Painting, coloring, and crafting to develop fine motor skills.' },
+            { icon: <BookOpen size={32} />, title: 'Story Time', desc: 'Developing listening, vocabulary, and imagination.' },
+            { icon: <Users size={32} />, title: 'Social Skills', desc: 'Learning to share, take turns, and play cooperatively.' },
+            { icon: <Smile size={32} />, title: 'Emotional Growth', desc: 'Understanding feelings and self-expression in a safe space.' },
+          ].map((item, idx) => (
+             <div key={idx} className="bg-white p-6 rounded-xl shadow-sm text-center border-b-4 border-transparent hover:border-school-gold transition-colors">
+               <div className="text-school-gold flex justify-center mb-4 bg-yellow-50 w-16 h-16 rounded-full items-center mx-auto">{item.icon}</div>
+               <h3 className="font-bold text-lg text-gray-800 mb-2">{item.title}</h3>
+               <p className="text-sm text-gray-600">{item.desc}</p>
+             </div>
+          ))}
+        </div>
+      </Section>
+    </div>
+  );
+};
