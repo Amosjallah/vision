@@ -1,8 +1,7 @@
 import React from 'react';
 import { Section } from '../components/Section';
-import { Book, PenTool, Globe, Cpu, Heart, ArrowRight } from 'lucide-react';
+import { Book, PenTool, Globe, Cpu, Heart, ArrowRight, ClipboardCheck, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button } from '../components/Button';
 
 export const Academics: React.FC = () => {
   const levels = [
@@ -53,7 +52,7 @@ export const Academics: React.FC = () => {
       <Section background="white">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {levels.map((level, idx) => (
-            <div key={idx} className={`bg-white p-8 rounded-2xl shadow-lg border-t-4 ${level.color} flex flex-col`}>
+            <div key={idx} className={`bg-white p-8 rounded-2xl shadow-lg border-t-4 ${level.color} flex flex-col hover:-translate-y-1 transition-transform`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="bg-gray-50 p-3 rounded-full">{level.icon}</div>
                 <h3 className="text-2xl font-bold text-gray-800">{level.title}</h3>
@@ -69,7 +68,44 @@ export const Academics: React.FC = () => {
         </div>
       </Section>
 
+      {/* Curriculum Framework */}
       <Section background="grey">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+                <h2 className="text-3xl font-bold text-school-dark mb-6">Curriculum Framework</h2>
+                <p className="text-gray-600">We follow the Standard-Based Curriculum (SBC) approved by GES/NaCCA, enriched with international best practices.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="p-6 border border-gray-100 rounded-xl bg-blue-50">
+                  <h3 className="font-bold text-lg mb-3 text-blue-900">Foundational (KG - P3)</h3>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• Literacy & Numeracy focus</li>
+                      <li>• Play-based pedagogy</li>
+                      <li>• Creative Arts expression</li>
+                      <li>• Local language introduction</li>
+                  </ul>
+                </div>
+                <div className="p-6 border border-gray-100 rounded-xl bg-green-50">
+                  <h3 className="font-bold text-lg mb-3 text-green-900">Middle Phase (P4 - P6)</h3>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• Subject-based learning</li>
+                      <li>• Critical thinking skills</li>
+                      <li>• ICT proficiency</li>
+                      <li>• Group project work</li>
+                  </ul>
+                </div>
+                <div className="p-6 border border-gray-100 rounded-xl bg-yellow-50">
+                  <h3 className="font-bold text-lg mb-3 text-yellow-900">Junior High (JHS 1-3)</h3>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• Specialized subject teaching</li>
+                      <li>• Pre-technical skills</li>
+                      <li>• Career guidance</li>
+                      <li>• Intensive BECE prep</li>
+                  </ul>
+                </div>
+          </div>
+      </Section>
+
+      <Section background="white">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl font-bold text-school-dark mb-6">Our Teaching Philosophy</h2>
@@ -87,6 +123,63 @@ export const Academics: React.FC = () => {
           </div>
         </div>
       </Section>
+
+      {/* Assessment & Support */}
+      <Section background="grey">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div>
+                  <h2 className="text-2xl font-bold text-school-dark mb-6 flex items-center gap-2">
+                        <ClipboardCheck className="text-school-gold" /> Assessment Structure
+                  </h2>
+                  <div className="space-y-6">
+                      <div className="bg-white p-5 rounded-lg shadow-sm">
+                          <h4 className="font-bold text-gray-800 mb-2">Class Assessment (30%)</h4>
+                          <p className="text-sm text-gray-600">Comprises class exercises, homework, group projects, and mid-term tests to ensure continuous engagement.</p>
+                      </div>
+                      <div className="bg-white p-5 rounded-lg shadow-sm">
+                          <h4 className="font-bold text-gray-800 mb-2">End of Term Exams (70%)</h4>
+                          <p className="text-sm text-gray-600">Comprehensive examination testing the understanding of concepts covered throughout the term.</p>
+                      </div>
+                  </div>
+              </div>
+              <div>
+                  <h2 className="text-2xl font-bold text-school-dark mb-6 flex items-center gap-2">
+                        <HelpCircle className="text-school-gold" /> Academic Support
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                      We recognize that every child learns at a different pace. Our academic support system ensures no child is left behind.
+                  </p>
+                  <ul className="space-y-4">
+                      {[
+                          'Remedial classes for students needing extra help.',
+                          'One-on-one reading sessions for lower primary.',
+                          'Saturday classes for JHS candidates.',
+                          'Guidance counseling for academic goal setting.'
+                      ].map((item, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                              <div className="mt-1 w-2 h-2 rounded-full bg-school-gold shrink-0"></div>
+                              <span className="text-gray-700">{item}</span>
+                          </li>
+                      ))}
+                  </ul>
+              </div>
+          </div>
+        </Section>
+      
+      {/* Clubs Section */}
+      <Section background="white">
+          <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-school-dark mb-4">Clubs & Societies</h2>
+              <p className="text-gray-600">Learning extends beyond the classroom walls.</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4">
+              {['Science & Maths Club', 'Debaters & Writers Club', 'Cadet Corps', 'Red Cross Society', 'Cultural Troupe', 'Wildlife Club', 'Coding Club'].map(club => (
+                  <span key={club} className="px-6 py-3 bg-gray-50 border border-gray-200 rounded-full text-gray-700 font-semibold hover:bg-school-gold hover:text-white transition-colors cursor-default">
+                      {club}
+                  </span>
+              ))}
+          </div>
+        </Section>
     </div>
   );
 };
