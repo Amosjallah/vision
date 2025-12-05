@@ -1,7 +1,7 @@
 import React from 'react';
 import { Section } from '../components/Section';
 import { Button } from '../components/Button';
-import { Check, Download, ShoppingBag, Banknote } from 'lucide-react';
+import { Check, Download, ShoppingBag, Banknote, Scissors } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Admissions: React.FC = () => {
@@ -128,6 +128,70 @@ export const Admissions: React.FC = () => {
                  </ul>
                </div>
             </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Uniform Specification Section */}
+      <Section background="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-school-dark mb-4 flex items-center justify-center gap-2">
+              <Scissors className="text-school-gold" /> Uniform Specification
+            </h2>
+            <div className="w-20 h-1 bg-school-gold mx-auto rounded-full"></div>
+            <p className="text-gray-600 mt-4">Standard dress code design specifications for students.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+             <div className="bg-white p-6 rounded-2xl border-2 border-dashed border-gray-300 flex justify-center items-center">
+                {/* Note: Replace src below with your actual image URL */}
+                <div className="text-center w-full">
+                    <div className="bg-gray-100 rounded-lg overflow-hidden mb-4 relative group">
+                       <img 
+                          src="https://placehold.co/400x500/f3f4f6/374151?text=Uniform+Sketch" 
+                          alt="Uniform Sketch" 
+                          className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                           <span className="bg-black/50 text-white px-3 py-1 rounded text-sm backdrop-blur-sm">Sketch Preview</span>
+                        </div>
+                    </div>
+                    <p className="text-sm text-gray-500 italic">Illustration: Cape, Belt & Box Pleat Design</p>
+                </div>
+             </div>
+             
+             <div>
+               <h3 className="text-2xl font-bold text-school-dark mb-6">Design Features</h3>
+               <div className="space-y-8">
+                 <div className="flex items-start gap-4 group">
+                   <div className="w-12 h-12 rounded-full bg-school-gold flex items-center justify-center shrink-0 text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform">1</div>
+                   <div>
+                     <h4 className="font-bold text-lg text-gray-800">Cape Collar</h4>
+                     <p className="text-gray-600 mt-1">The uniform features a distinctive <strong>cape-style collar</strong> that drapes elegantly over the shoulders, providing a classic and neat appearance.</p>
+                   </div>
+                 </div>
+                 <div className="flex items-start gap-4 group">
+                   <div className="w-12 h-12 rounded-full bg-school-dark flex items-center justify-center shrink-0 text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform">2</div>
+                   <div>
+                     <h4 className="font-bold text-lg text-gray-800">Waist Belt</h4>
+                     <p className="text-gray-600 mt-1">A structured <strong>belt</strong> at the waistline ensures a fitted, smart look for all students.</p>
+                   </div>
+                 </div>
+                 <div className="flex items-start gap-4 group">
+                   <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center shrink-0 text-school-dark font-bold text-xl shadow-lg group-hover:scale-110 transition-transform">3</div>
+                   <div>
+                     <h4 className="font-bold text-lg text-gray-800">Box Pleats</h4>
+                     <p className="text-gray-600 mt-1">The skirt section is designed with <strong>box pleats</strong>, offering both durability and freedom of movement.</p>
+                   </div>
+                 </div>
+               </div>
+
+               <div className="mt-8 p-5 bg-yellow-50 rounded-xl border border-yellow-100 text-school-dark shadow-sm">
+                 <p className="font-bold mb-1">Important Note:</p>
+                 <p className="text-sm opacity-90">Please ensure that the school branded fabric is used and the design specifications are followed strictly by your tailor.</p>
+               </div>
+             </div>
           </div>
         </div>
       </Section>
