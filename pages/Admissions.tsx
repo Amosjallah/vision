@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Section } from '../components/Section';
 import { Button } from '../components/Button';
 import { Check, Download, ShoppingBag, Banknote, Scissors } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Admissions: React.FC = () => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <div>
       <div className="bg-school-dark text-white py-20 text-center">
@@ -145,17 +147,15 @@ export const Admissions: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
              <div className="bg-white p-6 rounded-2xl border-2 border-dashed border-gray-300 flex justify-center items-center">
-                {/* Note: Replace src below with your actual image URL */}
                 <div className="text-center w-full">
-                    <div className="bg-gray-100 rounded-lg overflow-hidden mb-4 relative group">
+                    <div className="bg-gray-100 rounded-lg overflow-hidden mb-4 relative group min-h-[400px] flex items-center justify-center">
                        <img 
-                          src="https://placehold.co/400x500/f3f4f6/374151?text=Uniform+Sketch" 
-                          alt="Uniform Sketch" 
-                          className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                          src={imageError ? "https://placehold.co/600x800/f3f4f6/1f2937?text=Uniform+Design+Sketch" : "https://lh3.googleusercontent.com/gg/AIJ2gl_SG5Uho5MHqjjgvk-TvrABPo3OqtIdulJ16RGkBtg6YonhZc7P0vyyU-6I8MVIgrplic_6mGytzjEiO3W3kz2GKW8sOuTiw9VxVeaemxiWeb__AAOIjPpj5RQSSR0ucw1p4uipjB6-QSJlw6hYrrp04NqXspjogUTfwodteAzWZlkFpUGIqtFa9h5b_jf9lSP-vFOa5He3oWW74f9aRpWaxFzUMD8k07LNJ5D1msaF_g2l0ibj253k2hggNgeCrZGGBijmGGyb7tBxsEH9pwNfESp941mcSxSpiBTI67nQLOE-cz0GZa1JZm0dpf6YL59L25-lHHiP7-skj9Q5E2wN=s1024-rj"} 
+                          alt="Uniform Sketch - Cape, Belt & Box Pleat" 
+                          referrerPolicy="no-referrer"
+                          onError={() => setImageError(true)}
+                          className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500"
                         />
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                           <span className="bg-black/50 text-white px-3 py-1 rounded text-sm backdrop-blur-sm">Sketch Preview</span>
-                        </div>
                     </div>
                     <p className="text-sm text-gray-500 italic">Illustration: Cape, Belt & Box Pleat Design</p>
                 </div>
